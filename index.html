@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <title>FORM JAVASCRIPT</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <table class="table">
+      <tr>
+        <td>
+          <h2>
+            FROM PENDAFTARAN MAHASANTRI
+          </h2>
+          <div>
+            
+            <form class="form m-auto p-5 w-50" name="login">
+              <input class="form-control m-2" name="nama" type="text" placeholder="Masukkan Nama Lengkap" />
+
+              <input class="form-control m-2" type="email" name="email" placeholder="Masukkan Alamat Email" />
+
+              <input class="form-control m-2" type="str" name="telephone" placeholder="Masukan No Handphone" />
+
+                <h6>Tempat Tanggal lahir :</h6>
+              <input class="form-control m-2" type="text">
+              <h6>Agama :</h6>
+              <select class="form-control m-2"  name="agama">
+                <option value="islam">Islam</option>
+                <option value="kristen">Kristen</option>
+                <option value="hindu">Hindu</option>
+                <option value="buddha">Buddha</option>
+              </select>
+              <div class="radio">
+                <h6>Gender/Jenis kelamin</h6>
+                <table>
+                  <input type="radio" id="Clasic While" name="Choose" /><label for="Clasic While">. laki-laki</label>
+                </table>
+
+                <input type="radio" id="Multigrain" name="Choose" /><label for="Multigrain">. perempuan</label>
+              </div>
+
+              <div class="alamat">
+                <h6>Alamat :</h6>
+                <textarea class="form-control m-2" type="text" id="intruction" cols="40" rows="2" placeholder="Masukan alamat"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-secondary m-2" id="simpan">Simpan</button>
+            </form>
+
+            <p class="text text-center" id="hasil"></p>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+  <script>
+    let btnSimpan = document.getElementById("simpan");
+    let hasil = document.getElementById("hasil");
+
+    let login = document.forms.login;
+    let nama = login.elements.nama;
+    let agama = login.elements.agama;
+    let email = login.elements.email;
+    let telephone = login.elements.telephone;
+    let cek = false;
+
+    nama.onchange = () => {
+      hasil.innerHTML = nama.value;
+    };
+
+    email.onblur = () => {
+      if (!email.value.includes("@")) {
+        hasil.innerHTML = "Kamu harus menyertakan tanda '@' pada inputan email";
+      } else {
+        hasil.innerHTML = "";
+        cek = true;
+      }
+    };
+
+    btnSimpan.onclick = function (item) {
+      item.preventDefault();
+
+      let valueNama = nama.value; // inputan nama
+      let valueEmail = email.value; // inputan email
+      let valueAgama = agama.value; // islam
+      let valueNotelephone = telephone.value; //no telephone
+      let selectAgama = agama.options[agama.selectedIndex].text; // Islam
+
+      if (cek == true) {
+        hasil.innerHTML = "Hi, " + valueNama + ". Kamu " + selectAgama + "-kan" + " email kamu : " + valueEmail + "No telephone kamu " + valueNotelephone;
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</html>

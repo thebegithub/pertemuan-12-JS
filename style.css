@@ -1,0 +1,32 @@
+body{
+    background-image: linear-gradient( white);
+    margin-bottom: 0px;
+}
+
+.text{
+    color: white;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    background-color: #020202;
+    font-family: 'Times New Roman';
+    padding: 20px 10px;
+}
+h6{
+    color: black;
+    font-family: 'Times New Roman';
+}
+
+.radio{
+    color: black;
+    margin-bottom: 5px;
+    font-family: 'Times New Roman';
+}
+
+.alamat{
+    color: black;
+    border-radius: 0px;
+    font-family: 'Times New Roman';
+}
